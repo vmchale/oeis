@@ -1,5 +1,5 @@
 module Num.OEIS
-    ( -- * Helper functions
+    ( -- * Print a sequence for upload
       asBTextFile
     -- * Specific sequences
     , oeis000002
