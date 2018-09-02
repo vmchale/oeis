@@ -1,0 +1,47 @@
+cabal-version: 1.18
+name: oeis
+version: 0.1.0.0
+license: BSD3
+license-file: LICENSE
+copyright: Copyright: (c) 2018 Vanessa McHale
+maintainer: vanessa.mchale@iohk.io
+author: Vanessa McHale
+synopsis: Functions for generating OEIS sequences
+description:
+    A package for generating data to be hosted on OEIS, depending on `fast-arithmetic`
+category: Numeric
+build-type: Simple
+extra-source-files:
+    cabal.project.local
+extra-doc-files: README.md
+                 CHANGELOG.md
+
+source-repository head
+    type: git
+    location: https://github.com/vmchale/oeis
+
+flag development
+    description:
+        Enable `-Werror`
+    default: False
+    manual: True
+
+library
+    exposed-modules:
+        Num.OEIS
+    hs-source-dirs: src
+    default-language: Haskell2010
+    ghc-options: -Wall
+    build-depends:
+        base >=4.3 && <5,
+        fast-arithmetic >=0.6.1.0
+    
+    if flag(development)
+        ghc-options: -Werror
+    
+    if impl(ghc >=8.0)
+        ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates
+                     -Wredundant-constraints -Widentities
+    
+    if impl(ghc >=8.4)
+        ghc-options: -Wmissing-export-lists
