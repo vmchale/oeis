@@ -26,7 +26,7 @@ maxRegions n = sum $ fmap (n `choose`) [0..4]
 
 -- | Due to John Tromp
 oeis000002 :: Integral a => [a]
-oeis000002 = 1 : 2 : drop 2 (concat . zipWith replicate oeis000002 . cycle $ [1, 2])
+oeis000002 = 1 : 2 : (drop 2 . concat . zipWith replicate oeis000002 . cycle) [1, 2]
 
 oeis000004 :: Integral a => [a]
 oeis000004 = repeat 0
