@@ -8,7 +8,7 @@ maintainer: vanessa.mchale@iohk.io
 author: Vanessa McHale
 synopsis: Functions for generating OEIS sequences
 description:
-    A package for generating data to be hosted on OEIS, depending on `fast-arithmetic`
+    A package for generating data for OEIS, depending on `fast-arithmetic`
 category: Numeric
 build-type: Simple
 extra-source-files:
