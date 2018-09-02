@@ -3,20 +3,19 @@ module Num.OEIS
       asBTextFile
     -- * Specific sequences
     , oeis000127
-    -- * Data generation
-    , write000127
     ) where
 
-import           Numeric.Combinatorics (choose)
+factorial :: Int -> Integer
+factorial n = product [1..(fromIntegral n)]
+
+choose :: Int -> Int -> Integer
+choose n k = product (fmap fromIntegral [(n-k+1)..n]) `div` factorial k
 
 maxRegions :: Int -> Integer
 maxRegions n = sum $ fmap (n `choose`) [0..4]
 
 oeis000127 :: [Integer]
-oeis000127 = fmap maxRegions [0..45000]
-
-write000127 :: IO ()
-write000127 = writeFile "b000127.txt" (asBTextFile oeis000127)
+oeis000127 = fmap maxRegions [0..]
 
 index :: [a] -> [(Int, a)]
 index = zip [1..]
