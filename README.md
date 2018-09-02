@@ -1,5 +1,3 @@
 # oeis
 
-## Installation
-
-## Configuration
+Contains some sequences from OEIS.
